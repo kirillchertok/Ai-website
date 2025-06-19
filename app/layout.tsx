@@ -19,11 +19,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl">
+    <html lang="ar" dir="rtl" className="h-full">
       <body
-        className={`${cairoSans.className} antialiased py-[5.6875rem] px-[4.6875rem]`}
+        className={`${cairoSans.className} antialiased min-h-screen flex flex-col justify-center items-center`}
       >
-        {children}
+        <div className="w-full flex-1 flex items-center justify-center">
+          {children}
+        </div>
       </body>
     </html>
   );

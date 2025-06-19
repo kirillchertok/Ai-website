@@ -15,12 +15,20 @@ const Button = ({ bgColor, icon, content, type, className }: buttonType) => {
     <button
       type={type}
       className={cn(
-        'flex flex-row-reverse items-center justify-center gap-3.5 text-white rounded-full cursor-pointer',
+        'flex flex-row-reverse items-center justify-center gap-2 xs:gap-2.5 sm:gap-3 md:gap-3.5 text-white rounded-full cursor-pointer text-sm xs:text-base sm:text-lg md:text-lg lg:text-lg hover:scale-95 duration-200',
         bgColor,
         className
       )}
     >
-      {icon && <Image src={icon as string} width={20} height={20} alt="logo" />}
+      {icon && (
+        <Image
+          src={icon as string}
+          width={20}
+          height={20}
+          className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 md:w-6 md:h-6 lg:w-7 lg:h-7"
+          alt="logo"
+        />
+      )}
       {content}
     </button>
   );

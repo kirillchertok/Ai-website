@@ -18,26 +18,89 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-cairo-sans);
+
+  /* Custom breakpoints */
+  --breakpoint-xs: 320px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+  --breakpoint-3xl: 1920px;
 }
 .font-lyon {
   font-family: var(--font-lyon);
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
-
 body {
   background: var(--background);
   color: var(--foreground);
-  height: 100dvh;
-  display: flex;
+  height: auto;
   font-family: var(--font-sans);
-  overflow: hidden;
+  overflow-x: hidden;
 }
+
+/* Start Animations */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideInFromTop {
+  animation: slideInFromTop 600ms ease-out forwards;
+}
+
+.animate-slideInFromBottom {
+  animation: slideInFromBottom 600ms ease-out forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 500ms ease forwards;
+}
+
+.animate-slideInFromRight {
+  animation: slideInFromRight 600ms ease-out forwards;
+}
+/* End Animations */
 
 /* Start radio Button */
 /* Customize the label (the container) */
@@ -76,16 +139,18 @@ body {
   background-color: white;
   border: 3px solid #a0a0a0;
   border-radius: 50%;
+  transition: transform 200ms ease; /* Add transition for smooth animation */
 }
 
-/* On mouse-over, add a grey background color */
+/* On mouse-over, add a grey background color and scale effect */
 .container:hover input ~ .checkmark {
   background-color: #ccc;
+  transform: scale(0.9); /* Scale down to 90% on hover */
 }
 
 /* When the radio button is checked, add a blue background */
 .container input:checked ~ .checkmark {
-  background-color: #2196f3;
+  background-color: white;
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
@@ -108,6 +173,6 @@ body {
   height: 8px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: white;
+  background: #8775d6;
 }
 /* End radio Button */
