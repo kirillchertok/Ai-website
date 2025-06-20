@@ -176,3 +176,14 @@ body {
   background: #8775d6;
 }
 /* End radio Button */
+
+/* scrollBar hidden */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+/* scrollBar hidden */

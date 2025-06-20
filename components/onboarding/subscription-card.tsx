@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../UI/button';
 import Image from 'next/image';
+import Link from 'next/link';
 type SubscriptionCard = {
   title: string;
   description: string;
@@ -82,12 +83,14 @@ const SubscriptionCard = ({
           </div>
         ))}
       </div>
-      <Button
-        bgColor={buttonColor}
-        className={`w-full h-auto py-3 xs:py-3 sm:py-3 md:py-3.5 px-6 xs:px-6 sm:px-6 md:px-8 text-sm xs:text-base sm:text-lg leading-[100%] font-bold xs:font-extrabold ${spaceTopBtn} ${hoverColorBtn}`}
-        content={buttonText}
-        type="submit"
-      />
+      <Link href={'/'}>
+        <Button
+          bgColor={buttonColor}
+          className={`w-full h-auto py-3 xs:py-3 sm:py-3 md:py-3.5 px-6 xs:px-6 sm:px-6 md:px-8 text-sm xs:text-base sm:text-lg leading-[100%] font-bold xs:font-extrabold ${spaceTopBtn} ${hoverColorBtn}`}
+          content={buttonText}
+          type="submit"
+        />
+      </Link>
     </div>
   );
 };
