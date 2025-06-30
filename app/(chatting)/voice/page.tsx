@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 
 const VoicePage = () => {
   const [isMicPressed, setIsMicPressed] = useState(false);
@@ -10,13 +10,13 @@ const VoicePage = () => {
   const [audioBlob, setAudioBlob] = useState<Blob | null>(null);
   const [audioUrl, setAudioUrl] = useState("");
   const [volume, setVolume] = useState(0);
-  const [pingSize, setPingSize] = useState(20); // new state
+  const [pingSize, setPingSize] = useState(20);
 
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const audioChunksRef = useRef<Blob[]>([]);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
-  const volumeIntervalRef = useRef<NodeJS.Timeout | null>(null); // new
+  const volumeIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const audioContextRef = useRef<AudioContext | null>(null);
   const analyserRef = useRef<AnalyserNode | null>(null);
@@ -147,44 +147,50 @@ const VoicePage = () => {
     typeof navigator.mediaDevices.getUserMedia === "function";
 
   return (
-    <div className="flex flex-col justify-start items-center w-full h-full p-1">
-      <div className="text-center w-[350px] flex flex-col items-center">
+    <div className="flex flex-col justify-start items-center w-full h-full p-4">
+      <button className="flex justify-center items-center self-end rounded-full w-14 h-14 bg-white shadow-md">
+        <img src="/images/sound.svg" alt="sound icon" className="w-8 h-5" />
+      </button>
+
+      <div className="text-center w-full max-w-[360px] flex flex-col items-center">
         <img
           src="/images/pulsar.svg"
           alt="sound icon"
-          className="w-[250px] h-[250px]"
+          className="w-[70vw] max-w-[250px] h-auto"
         />
 
-        <p className="text-[#907DE0] text-[36px] mt-[20px] mb-[50px]">
+        <p className="text-[#907DE0] text-3xl mt-5 mb-10">
           {isRecording ? formatTime(recordingTime) : "00:00"}
         </p>
 
-        <div className="flex flex-row justify-between items-center w-full">
-          <button className="cursor-pointer" onClick={stopRecording}>
-            <img src="/images/right-btn-voice.svg" alt="stop recording icon" />
+        <div className="flex flex-row justify-between items-center w-full px-2">
+          <button onClick={stopRecording}>
+            <img
+              src="/images/right-btn-voice.svg"
+              alt="stop recording icon"
+              className="w-10 h-10 sm:w-12 sm:h-12"
+            />
           </button>
 
-          <div className="relative flex items-center justify-center">
-            {isMicPressed && (
-              <>
-                {[0.2, 0.4, 0.8].map((duration, idx) => (
-                  <div
-                    key={idx}
-                    className="absolute rounded-full border-1 bg-gradient-to-r from-[#FAE2E1] to-[#9887E3]/40 border-purple-400/40"
-                    style={{
-                      width: `${pingSize * 4}px`,
-                      height: `${pingSize * 4}px`,
-                      transition: `all ${duration}s ease-in-out`,
-                    }}
-                  />
-                ))}
-              </>
-            )}
+          <div className="relative flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28">
+            {isMicPressed &&
+              [0.2, 0.4, 0.8].map((duration, idx) => (
+                <div
+                  key={idx}
+                  className="absolute rounded-full border-1 bg-gradient-to-r from-[#FAE2E1] to-[#9887E3]/40 border-purple-400/40"
+                  style={{
+                    width: `${pingSize * 4}px`,
+                    height: `${pingSize * 4}px`,
+                    transition: `all ${duration}s ease-in-out`,
+                  }}
+                />
+              ))}
 
             <button
               onClick={handleMicPress}
               disabled={!isBrowserSupported}
-              className={`flex z-10 flex-row justify-center items-center w-24 h-24 rounded-full bg-[radial-gradient(circle_at_center,#FFF_0%,#E4DDFF_51%,#9887E3_100%)]
+              className={`flex z-10 justify-center items-center w-16 h-16 sm:w-20 sm:h-20 rounded-full 
+                bg-[radial-gradient(circle_at_center,#FFF_0%,#E4DDFF_51%,#9887E3_100%)]
                 border-2 border-purple-400/40 
                 ${
                   !isBrowserSupported
@@ -196,7 +202,9 @@ const VoicePage = () => {
               <img
                 src="/images/microphone.svg"
                 alt="microphone icon"
-                className={`${isRecording ? "animate-pulse" : ""}`}
+                className={`${
+                  isRecording ? "animate-pulse" : ""
+                } w-6 h-6 sm:w-8 sm:h-8`}
               />
             </button>
           </div>
@@ -206,7 +214,7 @@ const VoicePage = () => {
               <img
                 src="/images/left-btn-voice.svg"
                 alt="back"
-                className="rounded-full h-full aspect-square flex items-center justify-center cursor-pointer"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full"
               />
             </button>
           </Link>

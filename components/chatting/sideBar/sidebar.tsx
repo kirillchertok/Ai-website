@@ -62,6 +62,7 @@ function MinimizedSidebar({
 
       <div className="mt-8">
         <CheckBoxCardGroup
+          type="small"
           options={options}
           defaultSelected="option1"
           isCollapsed={true}
@@ -76,12 +77,18 @@ function MinimizedSidebar({
 function FullSidebar({
   toggleSidebar,
   options,
+  isOpen,
 }: {
   toggleSidebar: () => void;
   options: any[];
+  isOpen: boolean;
 }) {
   return (
-    <div className="p-10 h-auto gap-14 flex flex-col justify-between">
+    <div
+      className={`p-10 h-auto gap-14 flex flex-col justify-between absolute top-0 transitition-all duration-300 ${
+        !isOpen && "hidden"
+      } ${isOpen ? "left-0" : "left-[100%]"}`}
+    >
       <div
         className="flex justify-between items-center w-full"
         onClick={toggleSidebar}
@@ -124,6 +131,7 @@ function FullSidebar({
         <p className="w-full text-right text-2xl font-medium">المختص الحالي</p>
         <div className="space-y-2">
           <CheckBoxCardGroup
+            type="large"
             options={options}
             defaultSelected="option1"
             isCollapsed={false}
@@ -171,7 +179,7 @@ export default function Sidebar() {
       )}
 
       <aside
-        className={`bg-white border-l border-gray-200 h-full overflow-y-auto transition-all duration-300 md:block z-30 scrollbar-hide ${
+        className={`bg-white border-l border-gray-200 h-full overflow-y-auto transition-all duration-300 md:block z-30 relative scrollbar-hide ${
           isMobile ? "" : ""
         } ${
           isOpen
@@ -182,11 +190,14 @@ export default function Sidebar() {
         }`}
         onClick={toggleSidebar}
       >
-        {isOpen ? (
-          <FullSidebar toggleSidebar={toggleSidebar} options={options} />
-        ) : (
+        {!isOpen && (
           <MinimizedSidebar toggleSidebar={toggleSidebar} options={options} />
         )}
+        <FullSidebar
+          toggleSidebar={toggleSidebar}
+          options={options}
+          isOpen={isOpen}
+        />
       </aside>
     </>
   );

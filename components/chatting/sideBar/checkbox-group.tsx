@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import CheckBoxCard from './checkbox-card';
+import React, { useState } from "react";
+import CheckBoxCard from "./checkbox-card";
 
 type Option = {
   id: string;
@@ -10,6 +10,7 @@ type Option = {
 };
 
 type CheckBoxCardGroupProps = {
+  type: "small" | "large";
   options: Option[];
   defaultSelected?: string;
   isCollapsed?: boolean;
@@ -17,8 +18,9 @@ type CheckBoxCardGroupProps = {
 
 const CheckBoxCardGroup = ({
   options,
-  defaultSelected = '',
+  defaultSelected = "",
   isCollapsed = false,
+  type,
 }: CheckBoxCardGroupProps) => {
   const [selectedId, setSelectedId] = useState(defaultSelected);
 
@@ -28,7 +30,9 @@ const CheckBoxCardGroup = ({
 
   return (
     <div
-      className={`space-y-5 ${isCollapsed ? 'flex flex-col items-center' : ''}`}
+      className={`space-y-5 ${type === "large" && "w-[400px]"} ${
+        isCollapsed ? "flex flex-col items-center" : ""
+      }`}
     >
       {options.map((option, index) => (
         <CheckBoxCard

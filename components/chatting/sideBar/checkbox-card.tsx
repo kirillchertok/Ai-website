@@ -28,9 +28,6 @@ const CheckBoxCard = ({
             ? "before:content-[''] before:absolute before:-bottom-5 before:left-[50%] before:translate-x-[-50%] before:w-[0.0625rem] before:h-[1.1875rem] before:bg-[#E8E8E8]"
             : ""
         } ${checked ? "bg-white" : "bg-white"}`}
-        onClick={() => {
-          onSelect(id);
-        }}
         title={title}
       >
         {checked ? (
@@ -51,7 +48,7 @@ const CheckBoxCard = ({
 
   return (
     <div
-      className={`flex items-start gap-2 py-3 px-4 border-1 border-[#E8E8E8] rounded-lg cursor-pointer relative
+      className={`flex items-start gap-2 py-3 px-4 border-1 border-[#E8E8E8] rounded-lg relative
       ${
         !isLastItem
           ? "before:content-[''] before:absolute before:-bottom-5 before:left-[50%] before:translate-x-[-50%] before:w-[0.0625rem] before:h-[1.1875rem] before:bg-[#E8E8E8]"
@@ -59,7 +56,6 @@ const CheckBoxCard = ({
       }`}
       onClick={(e) => {
         e.stopPropagation();
-        onSelect(id);
       }}
     >
       <div className="relative">

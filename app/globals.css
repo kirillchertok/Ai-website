@@ -40,6 +40,15 @@ body {
   overflow-x: hidden;
 }
 
+button{
+  transition: scale 0.3s linear;
+  cursor: pointer;
+}
+
+button:hover{
+  scale: 0.9;
+}
+
 /* Start Animations */
 
 @keyframes fadeIn {
