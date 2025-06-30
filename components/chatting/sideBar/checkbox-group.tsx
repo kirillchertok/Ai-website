@@ -39,7 +39,8 @@ const CheckBoxCardGroup = ({
         sm:w-[300px]
         md:w-[340px]
         [@media(max-width:768px)]:w-[200px]
-        lg:w-[200px]
+        [@media(max-width:1024px)]:w-[200px]
+        lg:w-[400px]
       `
           : ""
       }
