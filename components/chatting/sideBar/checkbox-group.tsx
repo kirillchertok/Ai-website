@@ -11,6 +11,7 @@ type Option = {
 
 type CheckBoxCardGroupProps = {
   type: "small" | "large";
+  checkBoxSize: string;
   options: Option[];
   defaultSelected?: string;
   isCollapsed?: boolean;
@@ -20,6 +21,7 @@ const CheckBoxCardGroup = ({
   options,
   defaultSelected = "",
   isCollapsed = false,
+  checkBoxSize,
   type,
 }: CheckBoxCardGroupProps) => {
   const [selectedId, setSelectedId] = useState(defaultSelected);
@@ -30,7 +32,7 @@ const CheckBoxCardGroup = ({
 
   return (
     <div
-      className={`space-y-5 ${type === "large" && "w-[400px]"} ${
+      className={`space-y-5 ${type === "large" && `w-[${checkBoxSize}px]`} ${
         isCollapsed ? "flex flex-col items-center" : ""
       }`}
     >

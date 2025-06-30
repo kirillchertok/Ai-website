@@ -10,7 +10,9 @@ const StartChatOptions = ({ text, icon }: IStartChatOptions) => {
         <div className="h-full aspect-square rounded-full bg-white flex flex-row justify-center items-center">
           {icon}
         </div>
-        <span className="text-[12px] md:text-[13px] mr-4">{text}</span>
+        <span className="text-[12px] md:text-[13px] xs:text-[10px] mr-4">
+          {text}
+        </span>
       </div>
     </>
   );
