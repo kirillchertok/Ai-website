@@ -1,8 +1,8 @@
-import Header from '@/components/chatting/header';
-import Sidebar from '@/components/chatting/sideBar/sidebar';
-import { UserPlanProvider } from '@/context/user-plan-context';
-import { redirect } from 'next/navigation';
-import React from 'react';
+import Header from "@/components/chatting/header";
+import Sidebar from "@/components/chatting/sideBar/sidebar";
+import { UserPlanProvider } from "@/context/user-plan-context";
+import { redirect } from "next/navigation";
+import React from "react";
 
 export default async function ChattingLayout({
   children,

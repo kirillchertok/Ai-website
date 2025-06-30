@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 interface TimerBlockProps {
   isCollapsed?: boolean;
@@ -28,9 +28,9 @@ const TimerBlock: React.FC<TimerBlockProps> = ({
   const formatTime = () => {
     const minutes = Math.floor(timeLeft / 60);
     const seconds = timeLeft % 60;
-    return `${minutes.toString().padStart(2, '0')}:${seconds
+    return `${minutes.toString().padStart(2, "0")}:${seconds
       .toString()
-      .padStart(2, '0')}`;
+      .padStart(2, "0")}`;
   };
 
   // Uncomment this to make the timer actually count down
@@ -48,8 +48,8 @@ const TimerBlock: React.FC<TimerBlockProps> = ({
     <div
       className={`flex ${
         isCollapsed
-          ? 'justify-center'
-          : 'flex-col justify-between items-center gap-14'
+          ? "justify-center"
+          : "flex-col justify-between items-center gap-14"
       } mt-8`}
     >
       {!isCollapsed && (
@@ -63,13 +63,13 @@ const TimerBlock: React.FC<TimerBlockProps> = ({
             01:40
           </span>
         ) : (
-          <div className="w-[250px] h-[250px] rounded-full flex items-center justify-center relative border border-[#E6E6FA]">
+          <div className="w-[200px] h-[200px] rounded-full flex items-center justify-center relative border border-[#E6E6FA]">
             {/* Second border - slightly smaller */}
-            <div className="w-[243px] h-[243px] rounded-full border border-[#F5F5FA] absolute inset-0 m-auto shadow-[0px_0px_3px_0px_rgba(0,0,0,0.05)]"></div>
-            <div className="w-[235px] h-[235px] rounded-full border border-[#F5F5FA] absolute inset-0 m-auto"></div>
+            <div className="w-[193px] h-[193px] rounded-full border border-[#F5F5FA] absolute inset-0 m-auto shadow-[0px_0px_3px_0px_rgba(0,0,0,0.05)]"></div>
+            <div className="w-[185px] h-[185px] rounded-full border border-[#F5F5FA] absolute inset-0 m-auto"></div>
 
             {/* Inner white circle with shadow */}
-            <span className="text-[#907DE0] font-medium text-6xl drop-shadow-[0_1.5px_3px_rgba(0,0,0,0.16)]">
+            <span className="text-[#907DE0] font-medium text-5xl drop-shadow-[0_1.5px_3px_rgba(0,0,0,0.16)]">
               01:40
             </span>
           </div>

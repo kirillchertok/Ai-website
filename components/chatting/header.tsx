@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import React from 'react';
-import TextWithIcon from '../UI/text-with-icon';
+import Image from "next/image";
+import React from "react";
+import TextWithIcon from "../UI/text-with-icon";
 
 export default function Header() {
   return (

@@ -9,11 +9,11 @@ const ChatPage = () => {
 
   return (
     <div className="flex flex-col justify-start items-center w-full h-full p-1">
-      <button className="flex flex-col justify-center items-center mr-auto rounded-full pt-[29px] pb-[29px] pr-[23px] pl-[23px] bg-white cursor-pointer">
+      <button className="flex flex-col justify-center items-center mr-auto rounded-full w-[60px] h-[60px] bg-white cursor-pointer">
         <img
           src="/images/sound.svg"
           alt="sound icon"
-          className="w-[43px] h-[43px]"
+          className="w-[35px] h-[20px]"
         />
       </button>
       <div className="w-[100%] md:w-[90%] lg:w-[90%] xl:w-[70%] h-full flex flex-col justify-between items-center">
