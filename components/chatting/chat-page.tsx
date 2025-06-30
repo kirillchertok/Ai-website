@@ -1,27 +1,66 @@
-'use client';
+"use client";
+
+import { useState } from "react";
+import ChatInput from "./chat-input";
+import StartChatOptions from "./start-chat-option";
 
 const ChatPage = () => {
+  const [message, setMessage] = useState("");
+
   return (
     <div className="flex flex-col justify-start items-center w-full h-full p-1">
-      <div className="fixed bottom-5 w-full max-w-[960px]">
-        <input
-          type="text"
-          placeholder="اكتب لرفاه ما تفكر فيه .."
-          className="w-full h-[54px] p-3 pl-12 pr-12 border rounded-md border-[#E7E7E7]"
+      <button className="flex flex-col justify-center items-center mr-auto rounded-full pt-[29px] pb-[29px] pr-[23px] pl-[23px] bg-white cursor-pointer">
+        <img
+          src="/images/sound.svg"
+          alt="sound icon"
+          className="w-[43px] h-[43px]"
         />
-        <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
-          <img 
-            src="/images/telegramFill.svg" 
-            alt="Left icon"
-            className="w-6 h-6"
+      </button>
+      <div className="w-[100%] md:w-[90%] lg:w-[90%] xl:w-[70%] h-full flex flex-col justify-between items-center">
+        <div className="w-[100%] md:w-[90%] lg:w-[80%] xl:w-[70%] h-[70%] flex flex-col justify-center items-center p-4">
+          <span className="text-[64px] text-[#000000] font-bold leading-10 mb-8">
+            رفاه
+          </span>
+          <ChatInput
+            usage="start"
+            isVoiceAvaileble={false}
+            inputValue={message}
+            setInputValue={(value: string) => setMessage(value)}
           />
+          <div className="flex flex-col justify-between items-center w-full mt-4 gap-2">
+            <StartChatOptions
+              text="اجلس في مكان هادئ حيث يمكن لرفاه سماعك بوضوح"
+              icon={
+                <>
+                  <img src="/images/person-chat.svg" alt="person icon" />
+                </>
+              }
+            />
+            <StartChatOptions
+              text="لا تقم بمشاركة أي معلومات شخصية أو حساسة"
+              icon={
+                <>
+                  <img src="/images/chat-smile.svg" alt="person icon" />
+                </>
+              }
+            />
+            <StartChatOptions
+              text="تحلى بالهدوء وساعد وكيلنا الذكي على فهم مشكلتك بعمق"
+              icon={
+                <>
+                  <img src="/images/sience-chat.svg" alt="person icon" />
+                </>
+              }
+            />
+          </div>
         </div>
-        <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-          <img 
-            src="/images/right-input-icon.svg" 
-            alt="Right icon"
-            className="w-6 h-6"
-          />
+        <div className="flex flex-col justify-between items-center">
+          <span className="text-[16px] text-[#919191] leading-7">
+            نحن لا نحل محل المختص النفسي
+          </span>
+          <span className="text-[16px] text-[#919191] leading-7">
+            جميع الحقوق محفوظة
+          </span>
         </div>
       </div>
     </div>
