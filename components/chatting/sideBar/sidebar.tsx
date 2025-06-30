@@ -63,7 +63,6 @@ function MinimizedSidebar({
       <div className="mt-8">
         <CheckBoxCardGroup
           type="small"
-          checkBoxSize="no_matter"
           options={options}
           defaultSelected="option1"
           isCollapsed={true}
@@ -79,16 +78,14 @@ function FullSidebar({
   toggleSidebar,
   options,
   isOpen,
-  checkBoxSize,
 }: {
   toggleSidebar: () => void;
   options: any[];
   isOpen: boolean;
-  checkBoxSize: string;
 }) {
   return (
     <div
-      className={`p-10 h-auto gap-14 flex flex-col justify-between absolute top-0 transitition-all duration-300 ${
+      className={`p-10 [@media(max-width:653px)]:p-2 h-auto gap-14 flex flex-col justify-between absolute top-0 transitition-all duration-300 ${
         !isOpen && "hidden"
       } ${isOpen ? "left-0" : "left-[100%]"}`}
     >
@@ -99,7 +96,7 @@ function FullSidebar({
         <TextWithIcon
           textContent="مرحبًا محمود"
           srcImage="/images/arrow-right-black.svg"
-          className="!text-[2.125rem] font-medium !justify-between w-full"
+          className="!text-[2.125rem] [@media(max-width:1024px)]:!text-[1.5rem]font-medium !justify-between w-full"
           sizeImage={24}
         />
       </div>
@@ -135,7 +132,6 @@ function FullSidebar({
         <div className="space-y-2">
           <CheckBoxCardGroup
             type="large"
-            checkBoxSize={checkBoxSize}
             options={options}
             defaultSelected="option1"
             isCollapsed={false}
@@ -151,25 +147,12 @@ function FullSidebar({
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
-  const [checkboxSize, setCheckboxSize] = useState("");
 
   // Check if the screen is mobile or tablet size
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsMobile(window.innerWidth < 1024); // 1024px is the lg breakpoint
+      setIsMobile(window.innerWidth < 768); // 1024px is the lg breakpoint
     };
-
-    if (window.innerWidth <= 1024 && window.innerWidth > 768) {
-      setCheckboxSize("200");
-    } else if (window.innerWidth <= 768 && window.innerWidth > 430) {
-      setCheckboxSize("180");
-    } else if (window.innerWidth <= 430 && window.innerWidth > 375) {
-      setCheckboxSize("300");
-    } else if (window.innerWidth <= 375) {
-      setCheckboxSize("280");
-    } else {
-      setCheckboxSize("400");
-    }
 
     // Initial check
     checkScreenSize();
@@ -211,7 +194,6 @@ export default function Sidebar() {
           <MinimizedSidebar toggleSidebar={toggleSidebar} options={options} />
         )}
         <FullSidebar
-          checkBoxSize={checkboxSize}
           toggleSidebar={toggleSidebar}
           options={options}
           isOpen={isOpen}
