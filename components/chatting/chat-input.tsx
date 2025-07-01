@@ -18,7 +18,8 @@ const ChatInput = ({
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const maxRows = 4;
   const lineHeight = 24;
-  const minHeight = 54;
+  const minHeight = window.innerWidth <= 375 ? 20 : 54;
+  console.log(minHeight);
 
   useEffect(() => {
     if (textareaRef.current) {
@@ -57,7 +58,7 @@ const ChatInput = ({
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           placeholder="اكتب لرفاه ما تفكر فيه .."
-          className="w-full min-h-[54px] max-h-[96px] p-3 focus:outline-none resize-none overflow-hidden"
+          className="w-full min-h-[54px] max-h-[96px] text-[14px] md:text-[13px] xs:text-[12px] p-3 focus:outline-none resize-none overflow-hidden"
           rows={1}
           style={{
             lineHeight: `${lineHeight}px`,

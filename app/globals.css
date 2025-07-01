@@ -41,12 +41,12 @@ body {
 }
 
 button{
-  transition: scale 0.3s linear;
+  transition: scale 0.3s ease;
   cursor: pointer;
 }
 
 button:hover{
-  scale: 0.9;
+  scale: 0.95;
 }
 
 /* Start Animations */

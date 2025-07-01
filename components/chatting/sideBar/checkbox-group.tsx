@@ -12,12 +12,14 @@ type Option = {
 type CheckBoxCardGroupProps = {
   type: "small" | "large";
   options: Option[];
+  isMobile: boolean;
   defaultSelected?: string;
   isCollapsed?: boolean;
 };
 
 const CheckBoxCardGroup = ({
   options,
+  isMobile,
   defaultSelected = "",
   isCollapsed = false,
   type,
@@ -29,16 +31,12 @@ const CheckBoxCardGroup = ({
   useEffect(() => {
     const checkScreenSize = () => {
       const width = window.innerWidth;
-      if (width <= 1024 && width > 768) {
-        setSize("220px");
-      } else if (width <= 768 && width > 440) {
+      if (width === 768) {
         setSize("700px");
-      } else if (width <= 440 && width > 375) {
-        setSize("400px");
-      } else if (width <= 375 && width > 344) {
-        setSize("350px");
-      } else if (width <= 344) {
-        setSize("320px");
+      } else if (width < 1024) {
+        setSize(`${width * 0.95}px`);
+      } else if (width <= 1024 && width > 768) {
+        setSize("220px");
       } else {
         setSize("400px");
       }

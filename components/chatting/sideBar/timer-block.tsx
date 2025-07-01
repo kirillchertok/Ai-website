@@ -49,11 +49,11 @@ const TimerBlock: React.FC<TimerBlockProps> = ({
       className={`flex ${
         isCollapsed
           ? "justify-center"
-          : "flex-col justify-between items-center gap-14"
-      } mt-8`}
+          : "flex-col justify-between items-center gap-6"
+      }`}
     >
       {!isCollapsed && (
-        <p className="text-center text-2xl font-medium text-gray-900">
+        <p className="text-center text-md font-medium text-gray-900">
           الوقت المتبقي مع الوكيل
         </p>
       )}

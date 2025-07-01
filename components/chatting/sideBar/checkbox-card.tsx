@@ -79,8 +79,10 @@ const CheckBoxCard = ({
         )}
       </div>
       <div className="ml-2 flex flex-col justify-between gap-2">
-        <span className="font-medium text-base leading-[160%]">{title}</span>
-        <span className="text-sm text-[#767676] font-normal leading-[160%]">
+        <span className="text-sm font-medium text-base leading-[160%]">
+          {title}
+        </span>
+        <span className="text-xs text-[#767676] font-normal leading-[160%]">
           {description}
         </span>
       </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import AnimatedBlob from "@/components/UI/animatedBlob";
 import Link from "next/link";
 import { useState, useRef } from "react";
 
@@ -147,19 +148,22 @@ const VoicePage = () => {
     typeof navigator.mediaDevices.getUserMedia === "function";
 
   return (
-    <div className="flex flex-col justify-start items-center w-full h-full p-4">
-      <button className="flex justify-center items-center self-end rounded-full w-14 h-14 bg-white shadow-md">
+    <div className="flex flex-col justify-start items-center w-full h-full p-4 relative">
+      <button className="flex justify-center items-center self-end rounded-full w-14 h-14 bg-white shadow-md absolute top-[-1%]">
         <img src="/images/sound.svg" alt="sound icon" className="w-8 h-5" />
       </button>
 
       <div className="text-center w-full max-w-[360px] flex flex-col items-center">
-        <img
-          src="/images/pulsar.svg"
-          alt="sound icon"
-          className="w-[70vw] max-w-[250px] h-auto"
-        />
+        <div className="relative w-[100%] h-[100%]">
+          <AnimatedBlob />
+          <img
+            src="/images/sphere1.svg"
+            alt="sphere"
+            className="absolute w-[70%] h-[70%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+          />
+        </div>
 
-        <p className="text-[#907DE0] text-3xl mt-5 mb-10">
+        <p className="text-[#907DE0] text-3xl mb-6">
           {isRecording ? formatTime(recordingTime) : "00:00"}
         </p>
 

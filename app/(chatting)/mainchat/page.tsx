@@ -14,17 +14,25 @@ const MainChat = () => {
         <div className="flex flex-row justify-center items-center p-4 border border-black rounded-[12px]">
           <div className="w-[10%] h-full ml-4 mb-[1.2rem] flex flex-row justify-end items-end gap-2">
             <button className="cursor-pointer">
-              <img src="/images/pin-message.svg" alt="pin message" />
+              <img
+                src="/images/pin-message.svg"
+                alt="pin message"
+                className="w-[20px] h-[20px]"
+              />
             </button>
             <button className="cursor-pointer">
-              <img src="/images/pencil-edit.svg" alt="pencil edit" />
+              <img
+                src="/images/pencil-edit.svg"
+                alt="pencil edit"
+                className="w-[20px] h-[20px]"
+              />
             </button>
           </div>
           <div className="w-full flex flex-col justify-start items-start">
             <span className="text-[14px] text-[#444444] mb-4">
               2:03 م، 15 نوفمبر - جلسة علاج نفسي.
             </span>
-            <span className="text-[18px] text-[#444444] leading-10">
+            <span className="text-[16px] text-[#444444] leading-7">
               الصحة النفسية، العلاج النفسي، الدعم النفسي - ما هي هذه المفاهيم؟
             </span>
           </div>
@@ -42,7 +50,7 @@ const MainChat = () => {
             <span className="text-[14px] text-[#000000] mb-4">
               2:03 م، 15 نوفمبر - جلسة علاج نفسي.
             </span>
-            <span className="text-[18px] text-[#000000] text-left leading-10">
+            <span className="text-[16px] text-[#000000] text-left leading-7">
               الصحة النفسية، العلاج النفسي، والدعم النفسي هي جميعها مصطلحات
               مرتبطة في مجال الصحة النفسية، لكنها تشير إلى جوانب مختلفة قليلاً
               من عملية الرعاية النفسية.

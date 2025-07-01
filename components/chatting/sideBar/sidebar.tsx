@@ -42,9 +42,11 @@ export const options = [
 function MinimizedSidebar({
   toggleSidebar,
   options,
+  isMobile,
 }: {
   toggleSidebar: () => void;
   options: any[];
+  isMobile: boolean;
 }) {
   return (
     <div className="xl:px-4 xl:py-12 px-2 py-6 h-full flex flex-col justify-between">
@@ -62,6 +64,7 @@ function MinimizedSidebar({
 
       <div className="mt-8">
         <CheckBoxCardGroup
+          isMobile={isMobile}
           type="small"
           options={options}
           defaultSelected="option1"
@@ -78,14 +81,16 @@ function FullSidebar({
   toggleSidebar,
   options,
   isOpen,
+  isMobile,
 }: {
   toggleSidebar: () => void;
   options: any[];
   isOpen: boolean;
+  isMobile: boolean;
 }) {
   return (
     <div
-      className={`p-10 [@media(max-width:653px)]:p-2 h-auto gap-14 flex flex-col justify-between absolute top-0 transitition-all duration-300 ${
+      className={`pl-10 pt-6 [@media(max-width:653px)]:p-2 h-auto gap-3 flex flex-col justify-between absolute top-0 transitition-all duration-300 ease ${
         !isOpen && "hidden"
       } ${isOpen ? "left-0" : "left-[100%]"}`}
     >
@@ -96,7 +101,7 @@ function FullSidebar({
         <TextWithIcon
           textContent="مرحبًا محمود"
           srcImage="/images/arrow-right-black.svg"
-          className="!text-[2.125rem] [@media(max-width:1024px)]:!text-[1.5rem]font-medium !justify-between w-full"
+          className="!text-2xl [@media(max-width:1024px)]:!text-xl font-medium !justify-between w-full"
           sizeImage={24}
         />
       </div>
@@ -128,9 +133,12 @@ function FullSidebar({
       </div>
 
       <div className="space-y-8">
-        <p className="w-full text-right text-2xl font-medium">المختص الحالي</p>
-        <div className="space-y-2">
+        <span className="w-full text-right text-xl font-medium">
+          المختص الحالي
+        </span>
+        <div className="space-y-2 mt-4">
           <CheckBoxCardGroup
+            isMobile={isMobile}
             type="large"
             options={options}
             defaultSelected="option1"
@@ -191,9 +199,14 @@ export default function Sidebar() {
         onClick={toggleSidebar}
       >
         {!isOpen && (
-          <MinimizedSidebar toggleSidebar={toggleSidebar} options={options} />
+          <MinimizedSidebar
+            isMobile={isMobile}
+            toggleSidebar={toggleSidebar}
+            options={options}
+          />
         )}
         <FullSidebar
+          isMobile={isMobile}
           toggleSidebar={toggleSidebar}
           options={options}
           isOpen={isOpen}

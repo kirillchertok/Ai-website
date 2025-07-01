@@ -18,7 +18,7 @@ const ChatPage = () => {
       </button>
       <div className="w-[100%] md:w-[90%] lg:w-[90%] xl:w-[70%] h-full flex flex-col justify-between items-center">
         <div className="w-[100%] md:w-[90%] lg:w-[80%] xl:w-[70%] h-[70%] flex flex-col justify-center items-center p-4">
-          <span className="text-[64px] text-[#000000] font-bold leading-10 mb-8">
+          <span className="text-[64px] md:text-[50px] xs:text-[40px] text-[#000000] font-bold leading-10 mb-8">
             رفاه
           </span>
           <ChatInput
