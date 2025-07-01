@@ -18,12 +18,13 @@ const ChatInput = ({
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const maxRows = 4;
   const lineHeight = 24;
-  const minHeight = window.innerWidth <= 375 ? 20 : 54;
+  const [minHeight, setMinHeight] = useState(20);
   console.log(minHeight);
 
   useEffect(() => {
     if (textareaRef.current) {
       const textarea = textareaRef.current;
+      setMinHeight(window.innerWidth <= 375 ? 20 : 54);
 
       textarea.style.height = `${minHeight}px`;
 
