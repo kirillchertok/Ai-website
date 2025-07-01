@@ -31,9 +31,9 @@ const CheckBoxCardGroup = ({
       const width = window.innerWidth;
       if (width <= 1024 && width > 768) {
         setSize("220px");
-      } else if (width <= 768 && width > 430) {
+      } else if (width <= 768 && width > 440) {
         setSize("700px");
-      } else if (width <= 430 && width > 375) {
+      } else if (width <= 440 && width > 375) {
         setSize("400px");
       } else if (width <= 375 && width > 344) {
         setSize("350px");
