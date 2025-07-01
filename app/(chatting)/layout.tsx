@@ -31,7 +31,7 @@ export default async function ChattingLayout({
           {/* Main content area - changes based on plan */}
           <main className="flex-1 overflow-auto">
             <Header />
-            <div className="p-4 md:p-6 xs:p-0 h-[calc(100%-74px)]">
+            <div className="lg:p-4 md:p-6 xs:p-0 h-[calc(100%-74px)]">
               {children}
             </div>
           </main>

@@ -154,14 +154,19 @@ const VoicePage = () => {
       </button>
 
       <div className="text-center w-full max-w-[360px] flex flex-col items-center">
-        <div className="relative w-[100%] h-[100%]">
+        {/* <div className="relative w-[100%] h-[100%]">
           <AnimatedBlob />
           <img
             src="/images/sphere1.svg"
             alt="sphere"
             className="absolute w-[70%] h-[70%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 animate-[spin_30s_linear_infinite]"
           />
-        </div>
+        </div> */}
+        <img
+          src="/images/sphere1.svg"
+          alt="sphere"
+          className="w-[250px] h-[250px] animate-[spin_30s_linear_infinite] mb-4"
+        />
 
         <p className="text-[#907DE0] text-3xl mb-6">
           {isRecording ? formatTime(recordingTime) : "00:00"}

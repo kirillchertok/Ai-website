@@ -7,11 +7,11 @@ const MainChat = () => {
   const [message, setMessage] = useState("");
 
   return (
-    <div className="flex flex-col justify-between items-center w-full h-full p-1">
+    <div className="flex flex-col justify-between items-center w-full h-full">
       {/* Messages */}
-      <div className="w-[95%] md:w-[60%] h-full p-4 flex flex-col gap-2 overflow-y-auto">
+      <div className="lg:w-[100%] md:w-[60%] h-full lg:p-4 xs:p-1 flex flex-col gap-2 overflow-y-auto">
         {/* User request */}
-        <div className="flex flex-row justify-center items-center lg:p-4 xs:p-1 border border-[rgba(0,0,0,0.5)] rounded-[12px]">
+        <div className="flex flex-row justify-center items-center lg:px-4 lg:py-4 xs:px-2 xs:py-2 border border-[rgba(0,0,0,0.5)] rounded-[12px]">
           <div className="w-[10%] h-full ml-4 mb-[1.2rem] flex flex-row justify-end items-end gap-2">
             <button className="cursor-pointer">
               <img

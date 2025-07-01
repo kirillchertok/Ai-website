@@ -90,7 +90,7 @@ function FullSidebar({
 }) {
   return (
     <div
-      className={`pl-10 pt-6 [@media(max-width:653px)]:p-2 h-auto gap-3 flex flex-col justify-between absolute top-0 transitition-all duration-300 ease ${
+      className={`pl-10 pt-6 [@media(max-width:653px)]:p-2 h-auto gap-8 flex flex-col justify-between absolute top-0 transitition-all duration-300 ease ${
         !isOpen && "hidden"
       } ${isOpen ? "left-0" : "left-[100%]"}`}
     >
