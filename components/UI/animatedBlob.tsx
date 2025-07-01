@@ -12,61 +12,72 @@ const AnimatedBlob = () => {
     >
       <style>
         {`
-          .rotate1 {
-            animation: spin 6s linear infinite;
+          .animate1 {
+            animation: spinPulse1 6s linear infinite;
             transform-origin: 50% 50%;
           }
-          .rotate2 {
-            animation: spinReverse 8s linear infinite;
+          .animate2 {
+            animation: spinPulse2 8s linear infinite;
             transform-origin: 50% 50%;
           }
-          .rotate3 {
-            animation: spin 10s linear infinite;
+          .animate3 {
+            animation: spinPulse3 10s linear infinite;
             transform-origin: 50% 50%;
           }
-          .rotate4 {
-            animation: spin 12s linear infinite;
+          .animate4 {
+            animation: spinPulse4 12s linear infinite;
             transform-origin: 50% 50%;
           }
 
-          @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+          @keyframes spinPulse1 {
+            0%   { transform: rotate(0deg) scale(1); }
+            50%  { transform: rotate(180deg) scale(1.05); }
+            100% { transform: rotate(360deg) scale(1); }
           }
 
-          @keyframes spinReverse {
-            0% { transform: rotate(360deg); }
-            100% { transform: rotate(0deg); }
+          @keyframes spinPulse2 {
+            0%   { transform: rotate(360deg) scale(1); }
+            50%  { transform: rotate(180deg) scale(1.05); }
+            100% { transform: rotate(0deg) scale(1); }
+          }
+
+          @keyframes spinPulse3 {
+            0%   { transform: rotate(0deg) scale(1); }
+            50%  { transform: rotate(180deg) scale(1.05); }
+            100% { transform: rotate(360deg) scale(1); }
+          }
+
+          @keyframes spinPulse4 {
+            0%   { transform: rotate(360deg) scale(1); }
+            50%  { transform: rotate(180deg) scale(1.05); }
+            100% { transform: rotate(0deg) scale(1); }
           }
         `}
       </style>
 
       <g filter="url(#filter0_d_2_573)">
-        <g className="rotate1">
+        <g className="animate1">
           <path
             opacity="0.5"
             d="M351.227 424.718C270.613 470.698 128.782 466.768 94.1703 357.7C59.5587 248.631 92.5647 148.121 173.179 102.14C253.793 56.1601 383.69 29.1963 430.863 165.659C456.934 263.891 431.841 378.738 351.227 424.718Z"
             fill="#A099FF"
           />
         </g>
-        <g className="rotate2">
+        <g className="animate2">
           <path
             opacity="0.5"
             d="M445.052 265.803C445.052 359.77 372.279 483.584 261.773 460.899C151.266 438.213 81.1882 359.77 81.1882 265.803C81.1882 171.837 92.2951 58.1873 232.45 83.1416C329.481 108.095 445.052 171.837 445.052 265.803Z"
             fill="#A099FF"
           />
         </g>
-        <g className="rotate3">
+        <g className="animate3">
           <path
             opacity="0.5"
             d="M215.811 441.777C126.524 417.457 27.7096 313.955 77.8669 211.318C128.024 108.682 210.075 48.469 299.362 72.7893C388.649 97.1096 510.769 181.733 450.782 312.894C401.958 401.711 305.098 466.097 215.811 441.777Z"
             fill="#A099FF"
           />
         </g>
-        <g
-          className="rotate4"
-          style={{ transform: "scale(0.6)", transformOrigin: "50% 50%" }}
-        >
+        <g className="animate4">
           <path
             opacity="0.5"
             d="M215.811 441.777C126.524 417.457 27.7096 313.955 77.8669 211.318C128.024 108.682 210.075 48.469 299.362 72.7893C388.649 97.1096 510.769 181.733 450.782 312.894C401.958 401.711 305.098 466.097 215.811 441.777Z"
