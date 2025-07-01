@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CheckBoxCard from "./checkbox-card";
 
 type Option = {
@@ -23,6 +23,36 @@ const CheckBoxCardGroup = ({
   type,
 }: CheckBoxCardGroupProps) => {
   const [selectedId, setSelectedId] = useState(defaultSelected);
+  const containerRef = useRef(null);
+  const [size, setSize] = useState("");
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      const width = window.innerWidth;
+      if (width <= 1024 && width > 768) {
+        setSize("220px");
+      } else if (width <= 768 && width > 430) {
+        setSize("700px");
+      } else if (width <= 430 && width > 375) {
+        setSize("400px");
+      } else if (width <= 375 && width > 344) {
+        setSize("350px");
+      } else if (width <= 344) {
+        setSize("320px");
+      } else {
+        setSize("400px");
+      }
+    };
+
+    // Initial check
+    checkScreenSize();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", checkScreenSize);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
 
   const handleSelect = (id: string) => {
     setSelectedId(id);
@@ -30,21 +60,9 @@ const CheckBoxCardGroup = ({
 
   return (
     <div
-      className={`
-      space-y-5
-      ${isCollapsed ? "flex flex-col items-center" : ""}
-      ${
-        type === "large"
-          ? `
-        sm:w-[300px]
-        md:w-[340px]
-        [@media(max-width:768px)]:w-[200px]
-        [@media(max-width:1024px)]:w-[200px]
-        lg:w-[400px]
-      `
-          : ""
-      }
-    `}
+      ref={containerRef}
+      className={`space-y-5 ${isCollapsed ? "flex flex-col items-center" : ""}`}
+      style={{ width: type === "large" ? size : "auto" }}
     >
       {options.map((option, index) => (
         <CheckBoxCard
