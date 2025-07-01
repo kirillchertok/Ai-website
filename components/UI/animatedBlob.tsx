@@ -24,6 +24,10 @@ const AnimatedBlob = () => {
             animation: spin 10s linear infinite;
             transform-origin: 50% 50%;
           }
+          .rotate4 {
+            animation: spin 12s linear infinite;
+            transform-origin: 50% 50%;
+          }
 
           @keyframes spin {
             0% { transform: rotate(0deg); }
@@ -53,6 +57,16 @@ const AnimatedBlob = () => {
           />
         </g>
         <g className="rotate3">
+          <path
+            opacity="0.5"
+            d="M215.811 441.777C126.524 417.457 27.7096 313.955 77.8669 211.318C128.024 108.682 210.075 48.469 299.362 72.7893C388.649 97.1096 510.769 181.733 450.782 312.894C401.958 401.711 305.098 466.097 215.811 441.777Z"
+            fill="#A099FF"
+          />
+        </g>
+        <g
+          className="rotate4"
+          style={{ transform: "scale(0.6)", transformOrigin: "50% 50%" }}
+        >
           <path
             opacity="0.5"
             d="M215.811 441.777C126.524 417.457 27.7096 313.955 77.8669 211.318C128.024 108.682 210.075 48.469 299.362 72.7893C388.649 97.1096 510.769 181.733 450.782 312.894C401.958 401.711 305.098 466.097 215.811 441.777Z"

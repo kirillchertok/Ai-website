@@ -159,7 +159,7 @@ const VoicePage = () => {
           <img
             src="/images/sphere1.svg"
             alt="sphere"
-            className="absolute w-[70%] h-[70%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+            className="absolute w-[70%] h-[70%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 animate-[spin_30s_linear_infinite]"
           />
         </div>
 
