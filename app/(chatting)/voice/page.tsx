@@ -165,7 +165,7 @@ const VoicePage = () => {
         <img
           src="/images/sphere1.svg"
           alt="sphere"
-          className="w-[250px] h-[250px] animate-[spin_30s_linear_infinite] mb-4"
+          className="lg:w-[250px] lg:h-[250px] xs:w-[200px] xs:h-[200px] animate-[spin_30s_linear_infinite] mb-4"
         />
 
         <p className="text-[#907DE0] text-3xl mb-6">
