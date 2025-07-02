@@ -148,7 +148,7 @@ const VoicePage = () => {
     typeof navigator.mediaDevices.getUserMedia === "function";
 
   return (
-    <div className="flex flex-col justify-start items-center w-full h-full p-4 relative">
+    <div className="flex flex-col justify-center items-center w-full h-full p-4 relative">
       <button className="flex justify-center items-center self-end rounded-full w-14 h-14 bg-white shadow-md absolute lg:top-[-1%] xs:top-[0.5%]">
         <img src="/images/sound.svg" alt="sound icon" className="w-8 h-5" />
       </button>

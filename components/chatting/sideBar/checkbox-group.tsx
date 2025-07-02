@@ -59,7 +59,9 @@ const CheckBoxCardGroup = ({
   return (
     <div
       ref={containerRef}
-      className={`space-y-5 ${isCollapsed ? "flex flex-col items-center" : ""}`}
+      className={`lg:space-y-5 xs:space-y-1 ${
+        isCollapsed ? "flex flex-col items-center" : ""
+      }`}
       style={{ width: type === "large" ? size : "auto" }}
     >
       {options.map((option, index) => (

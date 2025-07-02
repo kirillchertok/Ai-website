@@ -18,21 +18,40 @@ const ChatInput = ({
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const maxRows = 4;
   const lineHeight = 24;
-  const [minHeight, setMinHeight] = useState(20);
+  const [minHeight, setMinHeight] = useState(54);
+  const [isTextXS, setIsTextXS] = useState(false);
+  const [firstRender, setFirstRender] = useState(true);
+
+  useEffect(() => {
+    if (window.innerWidth <= 250) {
+      setIsTextXS(true);
+      // setMinHeight(15);
+    } else if (window.innerWidth <= 375) {
+      // setMinHeight(30);
+    } else {
+      // setMinHeight(54);
+    }
+  }, []);
+
   console.log(minHeight);
 
   useEffect(() => {
     if (textareaRef.current) {
       const textarea = textareaRef.current;
-      setMinHeight(window.innerWidth <= 375 ? 20 : 54);
 
       textarea.style.height = `${minHeight}px`;
 
       const scrollHeight = textarea.scrollHeight;
-      const newHeight = Math.min(
-        Math.max(scrollHeight, minHeight),
-        maxRows * lineHeight
-      );
+      let newHeight;
+      if (firstRender) {
+        newHeight = minHeight;
+        setFirstRender(false);
+      } else {
+        newHeight = Math.min(
+          Math.max(scrollHeight, minHeight),
+          maxRows * lineHeight
+        );
+      }
 
       textarea.style.height = `${newHeight}px`;
     }
@@ -51,7 +70,11 @@ const ChatInput = ({
           </button>
         </Link>
       )}
-      <div className="flex flex-row justify-between items-center border rounded-md border-[#E7E7E7] w-full pl-4 pr-4">
+      <div
+        className={`flex flex-row justify-between items-center border rounded-md border-[#E7E7E7] w-full ${
+          isTextXS ? "pl-1 pr-1" : "pl-4 pr-4"
+        }`}
+      >
         <img src="/images/right-input-icon.svg" alt="Right icon" />
         <textarea
           {...attrs}
@@ -59,7 +82,11 @@ const ChatInput = ({
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           placeholder="اكتب لرفاه ما تفكر فيه .."
-          className="w-full min-h-[54px] max-h-[96px] text-[14px] md:text-[13px] xs:text-[12px] p-3 focus:outline-none resize-none overflow-hidden"
+          className={`w-full min-h-[${minHeight}px] max-h-[96px] ${
+            isTextXS
+              ? "text-[8px] p-0"
+              : "text-[14px] md:text-[13px] xs:text-[12px] p-3"
+          } focus:outline-none resize-none overflow-hidden `}
           rows={1}
           style={{
             lineHeight: `${lineHeight}px`,

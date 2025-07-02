@@ -49,7 +49,7 @@ const TimerBlock: React.FC<TimerBlockProps> = ({
       className={`flex ${
         isCollapsed
           ? "justify-center"
-          : "flex-col justify-between items-center gap-6"
+          : "flex-col justify-between items-center lg:gap-6 xs:gap-2"
       }`}
     >
       {!isCollapsed && (
@@ -63,13 +63,13 @@ const TimerBlock: React.FC<TimerBlockProps> = ({
             01:40
           </span>
         ) : (
-          <div className="w-[150px] h-[150px] rounded-full flex items-center justify-center relative border border-[#E6E6FA]">
+          <div className="lg:w-[150px] lg:h-[150px] xs:w-[100px] xs:h-[100px] rounded-full flex items-center justify-center relative border border-[#E6E6FA]">
             {/* Second border - slightly smaller */}
-            <div className="w-[143px] h-[143px] rounded-full border border-[#F5F5FA] absolute inset-0 m-auto shadow-[0px_0px_3px_0px_rgba(0,0,0,0.05)]"></div>
-            <div className="w-[135px] h-[135px] rounded-full border border-[#F5F5FA] absolute inset-0 m-auto"></div>
+            <div className="lg:w-[143px] lg:h-[143px] xs:w-[93px] xs:h-[93px] rounded-full border border-[#F5F5FA] absolute inset-0 m-auto shadow-[0px_0px_3px_0px_rgba(0,0,0,0.05)]"></div>
+            <div className="lg:w-[135px] lg:h-[135px] lg:w-[85px] lg:h-[85px] rounded-full border border-[#F5F5FA] absolute inset-0 m-auto"></div>
 
             {/* Inner white circle with shadow */}
-            <span className="text-[#907DE0] font-medium text-4xl drop-shadow-[0_1.5px_3px_rgba(0,0,0,0.16)]">
+            <span className="text-[#907DE0] font-medium lg:text-4xl xs:text-2xl drop-shadow-[0_1.5px_3px_rgba(0,0,0,0.16)]">
               01:40
             </span>
           </div>

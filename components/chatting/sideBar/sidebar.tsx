@@ -90,7 +90,7 @@ function FullSidebar({
 }) {
   return (
     <div
-      className={`pl-10 pt-6 [@media(max-width:653px)]:p-2 h-auto gap-8 flex flex-col justify-between absolute top-0 transitition-all duration-300 ease ${
+      className={`pl-10 pt-6 [@media(max-width:653px)]:p-2 h-auto lg:gap-8 xs:gap-2 flex flex-col justify-between absolute top-0 transitition-all duration-300 ease ${
         !isOpen && "hidden"
       } ${isOpen ? "left-0" : "left-[100%]"}`}
     >
@@ -101,13 +101,13 @@ function FullSidebar({
         <TextWithIcon
           textContent="مرحبًا محمود"
           srcImage="/images/arrow-right-black.svg"
-          className="!text-2xl [@media(max-width:1024px)]:!text-xl font-medium !justify-between w-full"
+          className="lg:!text-2xl [@media(max-width:1024px)]:!text-xl xs:text-[10px] font-medium !justify-between w-full"
           sizeImage={24}
         />
       </div>
 
-      <div className="items-center gap-4 flex flex-col lg:hidden">
-        <button className="px-5 py-2.5 cursor-pointer">
+      <div className="items-center lg:gap-4 xs:gap-1 flex flex-col lg:hidden">
+        <button className="lg:px-5 lg:py-2.5 xs:py-1 cursor-pointer">
           <TextWithIcon
             textContent="مساعدة"
             srcImage="/images/help-circle.svg"
@@ -132,11 +132,11 @@ function FullSidebar({
         </div>
       </div>
 
-      <div className="space-y-8">
+      <div className="lg:space-y-8 xs:space-y-2">
         <span className="w-full text-right text-xl font-medium">
           المختص الحالي
         </span>
-        <div className="space-y-2 mt-4">
+        <div className="space-y-2 lg:mt-4 xs:mt-2">
           <CheckBoxCardGroup
             isMobile={isMobile}
             type="large"
