@@ -187,7 +187,7 @@ export default function Sidebar() {
       )}
 
       <aside
-        className={`bg-white border-l border-gray-200 h-full overflow-y-auto transition-all duration-300 md:block z-30 relative scrollbar-hide ${
+        className={`bg-white border-l border-gray-200 h-full overflow-y-hidden transition-all duration-300 md:block z-30 relative scrollbar-hide ${
           isMobile ? "" : ""
         } ${
           isOpen
